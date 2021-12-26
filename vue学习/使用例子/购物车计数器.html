@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>V-on指令</title>
+  </head>
+  <body>
+      <h3>计数器，像购物车那种（设置最大值最小值）</h1>
+
+      
+    <div id="app">
+
+        <input type="button" value="-" @click="method1">
+        <span>
+            {{num}}
+        </span>
+        <input type="button" value="+" @click="method2">
+    </div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      var aa = new Vue({
+        el:"#app",
+        data:{
+            num:1,
+        },
+        methods:{
+
+          method1:function(){
+              if(this.num<=1){
+                alert('别点了');
+              }else{
+                this.num--;
+              }
+
+          },
+
+          method2:function(){
+            if(this.num>=5){
+                alert('别点了');
+              }else{
+                this.num++;
+              }
+          },
+        }
+        
+      })
+
+    </script>
+
+  </body>
+</html>
