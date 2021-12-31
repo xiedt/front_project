@@ -6,19 +6,21 @@
 </head>
 <style>
 .class1{
-  background: #444;
-  color: #eee;
+  border: 1px solid red;
 }
 </style>
 <body>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 
 <div id="app">
-  <label for="r1">修改颜色</label>   <input type="checkbox" v-model="use" id="r1">
-  <br><br>
-  <div v-bind:class="{'class1': use}">
-    v-bind:class 指令
-  </div>
+
+<input type="button" value="改变边框" @click="method1"><br><br>
+<img v-bind:src=imgSrc v-bind:title=imgTitle height="200" width="300"
+        v-bind:class="isActive?'class1':''"><br><br>
+
+<img v-bind:src=imgSrc v-bind:title=imgTitle height="200" width="300"
+v-bind:class={class1:isActive}><br>
+  
 </div>
     
 <script>
@@ -27,9 +29,17 @@
     
 new Vue({
     el: '#app',
-  data:{
-      use: false
-  }
+    data:{
+      imgSrc:"../../static/images/11.jpg",
+      imgTitle:"这是一个名字",
+      isActive:false,
+    },
+    methods:{
+      method1(){
+        this.isActive=!this.isActive;
+        console.log(this.imgSrc)
+      }
+    }
 });
 
 
