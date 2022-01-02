@@ -15,9 +15,12 @@
 <div id="app">
 
 <input type="button" value="改变边框" @click="method1"><br><br>
+
+<!--设置元素的属性，比如src，title，class-->
 <img v-bind:src=imgSrc v-bind:title=imgTitle height="200" width="300"
         v-bind:class="isActive?'class1':''"><br><br>
 
+<!--两种设置类的方式-->
 <img v-bind:src=imgSrc v-bind:title=imgTitle height="200" width="300"
 v-bind:class={class1:isActive}><br>
   
