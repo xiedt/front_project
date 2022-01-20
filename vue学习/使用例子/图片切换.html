@@ -11,10 +11,15 @@
 
       
     <div id="app">
-        <img src="../../static/images/11.jpg" height="200" width="300"><br>
-
-        <img v-bind:src=imgSrc height="200" width="300"><br>
-
+      <span>
+        <input type="button" v-show="index!=0" value="向左切换" @click="method1">
+      </span>
+      
+        <img v-bind:src=imgArr[index] height="200" width="300">
+      <span>
+        <input type="button" v-show="index<imgArr.length-1" value="向右切换" @click="method2">
+      </span>
+      
     </div>
  
   
@@ -22,12 +27,20 @@
       var aa = new Vue({
         el:"#app",
         data:{
-          imgSrc:"../../static/images/11.jpg",
-          imgArr:[
-            "/static/images/11.jpg",
-            "/static/images/22.jpg",
-            "/static/images/33.jpg"
-          ]
+          imgArr: [
+            "../../static/images/11.jpg",
+            "../../static/images/22.jpg",
+            "../../static/images/33.jpg"
+          ],
+          index: 0
+        },
+        methods:{
+          method1:function(){
+              this.index--;
+          },
+          method2:function(){
+            this.index++;
+          }
         }
       });
 
