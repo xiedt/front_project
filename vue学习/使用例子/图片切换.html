@@ -12,10 +12,10 @@
       
     <div id="app">
       <span>
-        <input type="button" v-show="index!=0" value="向左切换" @click="method1">
+        <input type="button" v-show="index!=0" value="向左切换" v-on:click="method1">
       </span>
       
-        <img v-bind:src=imgArr[index] height="200" width="300">
+        <img v-bind:src="imgArr[index]" height="200" width="300">
       <span>
         <input type="button" v-show="index<imgArr.length-1" value="向右切换" @click="method2">
       </span>
