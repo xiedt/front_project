@@ -11,10 +11,13 @@
         
       
     <div id="app">
-        <p>下面的文字得满18岁才能看</p><br>
-        <p v-show="this.age>=18">这段文字得满十八岁才能看</p><br>
+        <p>下面的文字得满18岁才能看</p>
+        <p>当前年龄是{{age}}</p>
+        <p v-show="this.age>=18">这段文字得满十八岁才能看</p>
 
-        <input type="button" value="增加年龄" @click="method1">
+        <input type="button" value="增加年龄" @click="method1"><br>
+
+        <p v-show="this.isShow">测试</p>
 
     </div>
  
@@ -23,7 +26,8 @@
       var aa = new Vue({
         el:"#app",
         data:{
-            age:17,
+            age:14,
+            isShow:false
         },
         methods:{
             method1:function(){

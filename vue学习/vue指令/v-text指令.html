@@ -6,12 +6,15 @@
     <title>V-text指令</title>
   </head>
   <body>
-      <h1>data数据对象，数组和对象</h1>
+      
 
       
     <div id="app">
         <h2>{{message}}   部分替换使用这种</h2>
-        <h2 v-text="aa+'    123'"></h2>
+        <h2 v-text="aa+'123'"></h2>
+        <div v-text="cc">
+
+        </div>
         <h2 v-html="bb"></h2>
     </div>
  
@@ -23,7 +26,8 @@
         data:{
           message:" 插值",
           aa:"挂载text",
-          bb:"挂载text2"
+          bb:"https://www.baidu.com/",
+          cc:"v-text测试"
         }
       })
 

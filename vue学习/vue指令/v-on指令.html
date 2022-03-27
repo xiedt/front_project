@@ -20,6 +20,7 @@
         <!--这是双击事件-->
         <input type="button" value="双击事件绑定" v-on:dblclick="method1">
 
+         <!--另一种写法-->
         <p @click="changeFood">{{food}}</p>
 
    <!-- v-on绑定事件--> 
@@ -37,6 +38,7 @@
               alert('哈哈');
           },
           changeFood:function(){
+            //this.food获取food
             this.food+='1'
           },
         }
