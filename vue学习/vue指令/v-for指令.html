@@ -7,10 +7,18 @@
   </head>
   <body>
       <h1>v-for指令</h1>
+
     <div id="app">
+
+      <input type="button" value="增加属性" @click="add">
+      <input type="button" value="删除数据" @click="remove">
         <ul>
             <!--会生成5个li标签-->
             <li v-for="item in arr">你好</li>
+        </ul>
+        <br>
+        <ul>
+          <li v-for="item in myList ">姓名：{{item.name}}&nbsp;年龄：{{item.age}}</li>
         </ul>
         
     </div>
@@ -21,8 +29,17 @@
       var aa = new Vue({
         el:"#app",
         data:{
-            arr:[1,2,3,4,5]
-        }
+            arr:[1,2,3,4,5],
+            myList:[{name:'zhangsan',age:18},{name:'zhangsan',age:18},{name:'zhangsan',age:18}]
+        },
+       methods: {
+         add: function(){
+            this.myList.push({name:'haha',age:12})
+         },
+         remove: function(){
+           this.myList.shift();
+         }
+       }
       })
 
     </script>
