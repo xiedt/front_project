@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Vue基础1</title>
+</head>
+
+<body>
+
+    <!--官方提供的 axios 在线地址--->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    <div id="app1">
+        <input type="button" value="获取笑话" @click="getJoke">
+        <p>{{joke}}</p>
+    </div>
+
+
+
+    <!--https://autumnfish.cn/api/joke/list?num=3-->
+    <script>
+        //axios回调函数中的this已经改变，无法访问data中的数据，
+        //把this保存起来，回调函数中直接使用保存的this
+        //和本地应用最大的区别就是改变了数据来源
+        var app = new Vue({
+            el: "#app1",
+            data: {
+                joke: "笑话"
+            },
+            methods: {
+                getJoke: function () {
+                    var temp = this;
+                    axios.get("https://autumnfish.cn/api/joke").then(
+                        function (response) {
+                            
+                            temp.joke=response.data;
+                        },
+                        function (err) {
+
+                        }
+                    )
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
